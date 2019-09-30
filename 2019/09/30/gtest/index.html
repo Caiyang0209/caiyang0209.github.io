@@ -7,14 +7,14 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="why googletest?Googletest works on linux, Windows, Mac.It isolates the tests and allows to run every object isolately. Googletest groups related tests into test suites.It keeps on testing when one tes">
-<meta name="keywords" content="unit test, cs">
+<meta name="keywords" content="unit test, intern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gtest">
 <meta property="og:url" content="blog.yangworld.fun/2019/09/30/gtest/index.html">
 <meta property="og:site_name" content="Yang&#39;s Palace">
 <meta property="og:description" content="why googletest?Googletest works on linux, Windows, Mac.It isolates the tests and allows to run every object isolately. Googletest groups related tests into test suites.It keeps on testing when one tes">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-29T10:34:45.804Z">
+<meta property="og:updated_time" content="2019-09-30T03:42:22.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gtest">
 <meta name="twitter:description" content="why googletest?Googletest works on linux, Windows, Mac.It isolates the tests and allows to run every object isolately. Googletest groups related tests into test suites.It keeps on testing when one tes">
@@ -100,7 +100,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why-googletest"><span class="toc-number">1.</span> <span class="toc-text">why googletest?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#basic-concept"><span class="toc-number">2.</span> <span class="toc-text">basic concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Assertions"><span class="toc-number">3.</span> <span class="toc-text">Assertions</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why-googletest"><span class="toc-number">1.</span> <span class="toc-text">why googletest?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#basic-concept"><span class="toc-number">2.</span> <span class="toc-text">basic concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#assertions"><span class="toc-number">3.</span> <span class="toc-text">assertions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fixture"><span class="toc-number">4.</span> <span class="toc-text">fixture</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -135,7 +135,7 @@
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/unit-test-cs/">unit test, cs</a>
+        <a class="tag-link" href="/tags/unit-test-intern/">unit test, intern</a>
     </div>
 
 
@@ -146,8 +146,17 @@
   <div class="content" itemprop="articleBody">
     <h2 id="why-googletest"><a href="#why-googletest" class="headerlink" title="why googletest?"></a>why googletest?</h2><p>Googletest works on linux, Windows, Mac.<br>It isolates the tests and allows to run every object isolately. Googletest groups related tests into test suites.<br>It keeps on testing when one test failed.<br>googletest setup and tear down the process only once.  </p>
 <h2 id="basic-concept"><a href="#basic-concept" class="headerlink" title="basic concept"></a>basic concept</h2><p>a test suite contains one or many tests. Group tests into test suties. </p>
-<h2 id="Assertions"><a href="#Assertions" class="headerlink" title="Assertions"></a>Assertions</h2><p>ASSERT_<em> abort current function when a failure happens, while EXPECT_</em> goes on running current function. </p>
+<h2 id="assertions"><a href="#assertions" class="headerlink" title="assertions"></a>assertions</h2><p>ASSERT_<em> abort current function when a failure happens, while EXPECT_</em> goes on running current function. </p>
 <p>Aborting current function at once, Assert_* may cause a space leak leading to a heap checker error. </p>
+<p>“&lt;&lt;” provides a custom failure message. </p>
+<p>basic assertion, compare true or false.<br>binary compare, compare two values, _EQ, _NE, _LT, _LE, _GT, _GE.<br>string compare, compare two string, _STREQ, _STRNE, _STRCASEEQ, _STRCASENE </p>
+<p>ASSERT_EQ(actual,expected) is preferred to ASSERT_TRUE(actual==expected). </p>
+<h2 id="fixture"><a href="#fixture" class="headerlink" title="fixture"></a>fixture</h2><p>Fixture allows to reuse the same configuraion of objects for different tests.</p>
+<ol>
+<li>derive a class from ::testing::Test. Start its body with protected: so that sub-class have a acess to fixture members. </li>
+<li>create SetUp() and TearDown() to control class.</li>
+<li>then use TEST_F() instead of TEST().</li>
+</ol>
 
   </div>
 </article>
@@ -173,7 +182,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why-googletest"><span class="toc-number">1.</span> <span class="toc-text">why googletest?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#basic-concept"><span class="toc-number">2.</span> <span class="toc-text">basic concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Assertions"><span class="toc-number">3.</span> <span class="toc-text">Assertions</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why-googletest"><span class="toc-number">1.</span> <span class="toc-text">why googletest?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#basic-concept"><span class="toc-number">2.</span> <span class="toc-text">basic concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#assertions"><span class="toc-number">3.</span> <span class="toc-text">assertions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fixture"><span class="toc-number">4.</span> <span class="toc-text">fixture</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
